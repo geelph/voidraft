@@ -3,7 +3,7 @@
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
-import {Create as $Create} from "@wailsio/runtime";
+import { Create as $Create } from "@wailsio/runtime";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
@@ -98,7 +98,7 @@ export class HttpResponse {
             this["body"] = null;
         }
         if (!("headers" in $$source)) {
-            this["headers"] = ({} as http$0.Header);
+            this["headers"] = {};
         }
         if (!("timestamp" in $$source)) {
             this["timestamp"] = null;
@@ -198,7 +198,7 @@ export class MigrationProgress {
     /** Creates a new MigrationProgress instance. */
     constructor($$source: Partial<MigrationProgress> = {}) {
         if (!("status" in $$source)) {
-            this["status"] = ("" as MigrationStatus);
+            this["status"] = MigrationStatus.$zero;
         }
         if (!("progress" in $$source)) {
             this["progress"] = 0;
@@ -404,7 +404,7 @@ export class SystemInfo {
 
 // Private type creation functions
 const $$createType0 = $Create.Map($Create.Any, $Create.Any);
-var $$createType1 = (function $$initCreateType1(...args): any {
+var $$createType1 = (function $$initCreateType1(...args: any[]): any {
     if ($$createType1 === $$initCreateType1) {
         $$createType1 = $$createType3;
     }

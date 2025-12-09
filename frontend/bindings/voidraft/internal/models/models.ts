@@ -3,7 +3,7 @@
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
-import {Create as $Create} from "@wailsio/runtime";
+import { Create as $Create } from "@wailsio/runtime";
 
 /**
  * AppConfig 应用配置 - 按照前端设置页面分类组织
@@ -118,10 +118,10 @@ export class AppearanceConfig {
     /** Creates a new AppearanceConfig instance. */
     constructor($$source: Partial<AppearanceConfig> = {}) {
         if (!("language" in $$source)) {
-            this["language"] = ("" as LanguageType);
+            this["language"] = LanguageType.$zero;
         }
         if (!("systemTheme" in $$source)) {
-            this["systemTheme"] = ("" as SystemThemeType);
+            this["systemTheme"] = SystemThemeType.$zero;
         }
         if (!("currentTheme" in $$source)) {
             this["currentTheme"] = "";
@@ -313,7 +313,7 @@ export class EditingConfig {
             this["tabSize"] = 0;
         }
         if (!("tabType" in $$source)) {
-            this["tabType"] = ("" as TabType);
+            this["tabType"] = TabType.$zero;
         }
         if (!("autoSaveDelay" in $$source)) {
             this["autoSaveDelay"] = 0;
@@ -358,7 +358,7 @@ export class Extension {
     /** Creates a new Extension instance. */
     constructor($$source: Partial<Extension> = {}) {
         if (!("id" in $$source)) {
-            this["id"] = ("" as ExtensionID);
+            this["id"] = ExtensionID.$zero;
         }
         if (!("enabled" in $$source)) {
             this["enabled"] = false;
@@ -367,7 +367,7 @@ export class Extension {
             this["isDefault"] = false;
         }
         if (!("config" in $$source)) {
-            this["config"] = ({} as ExtensionConfig);
+            this["config"] = {};
         }
 
         Object.assign(this, $$source);
@@ -596,7 +596,7 @@ export class GitBackupConfig {
             this["repo_url"] = "";
         }
         if (!("auth_method" in $$source)) {
-            this["auth_method"] = ("" as AuthMethod);
+            this["auth_method"] = AuthMethod.$zero;
         }
         if (!("backup_interval" in $$source)) {
             this["backup_interval"] = 0;
@@ -786,10 +786,10 @@ export class KeyBinding {
     /** Creates a new KeyBinding instance. */
     constructor($$source: Partial<KeyBinding> = {}) {
         if (!("command" in $$source)) {
-            this["command"] = ("" as KeyBindingCommand);
+            this["command"] = KeyBindingCommand.$zero;
         }
         if (!("extension" in $$source)) {
-            this["extension"] = ("" as ExtensionID);
+            this["extension"] = ExtensionID.$zero;
         }
         if (!("key" in $$source)) {
             this["key"] = "";
@@ -1159,10 +1159,10 @@ export class Theme {
             this["name"] = "";
         }
         if (!("type" in $$source)) {
-            this["type"] = ("" as ThemeType);
+            this["type"] = ThemeType.$zero;
         }
         if (!("colors" in $$source)) {
-            this["colors"] = ({} as ThemeColorConfig);
+            this["colors"] = {};
         }
         if (!("isDefault" in $$source)) {
             this["isDefault"] = false;
@@ -1281,10 +1281,10 @@ export class UpdatesConfig {
             this["autoUpdate"] = false;
         }
         if (!("primarySource" in $$source)) {
-            this["primarySource"] = ("" as UpdateSourceType);
+            this["primarySource"] = UpdateSourceType.$zero;
         }
         if (!("backupSource" in $$source)) {
-            this["backupSource"] = ("" as UpdateSourceType);
+            this["backupSource"] = UpdateSourceType.$zero;
         }
         if (!("backupBeforeUpdate" in $$source)) {
             this["backupBeforeUpdate"] = false;
@@ -1326,7 +1326,7 @@ const $$createType2 = AppearanceConfig.createFrom;
 const $$createType3 = UpdatesConfig.createFrom;
 const $$createType4 = GitBackupConfig.createFrom;
 const $$createType5 = ConfigMetadata.createFrom;
-var $$createType6 = (function $$initCreateType6(...args): any {
+var $$createType6 = (function $$initCreateType6(...args: any[]): any {
     if ($$createType6 === $$initCreateType6) {
         $$createType6 = $$createType7;
     }
@@ -1334,7 +1334,7 @@ var $$createType6 = (function $$initCreateType6(...args): any {
 });
 const $$createType7 = $Create.Map($Create.Any, $Create.Any);
 const $$createType8 = HotkeyCombo.createFrom;
-var $$createType9 = (function $$initCreateType9(...args): any {
+var $$createType9 = (function $$initCreateType9(...args: any[]): any {
     if ($$createType9 === $$initCreateType9) {
         $$createType9 = $$createType7;
     }

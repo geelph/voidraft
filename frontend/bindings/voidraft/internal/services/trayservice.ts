@@ -8,52 +8,46 @@
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
-import {Call as $Call, Create as $Create} from "@wailsio/runtime";
+import { Call as $Call, CancellablePromise as $CancellablePromise, Create as $Create } from "@wailsio/runtime";
 
 /**
  * AutoShowHide 自动显示/隐藏主窗口
  */
-export function AutoShowHide(): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(4044219428) as any;
-    return $resultPromise;
+export function AutoShowHide(): $CancellablePromise<void> {
+    return $Call.ByID(4044219428);
 }
 
 /**
  * HandleWindowClose 处理窗口关闭事件
  */
-export function HandleWindowClose(): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(1824247204) as any;
-    return $resultPromise;
+export function HandleWindowClose(): $CancellablePromise<void> {
+    return $Call.ByID(1824247204);
 }
 
 /**
  * HandleWindowMinimize 处理窗口最小化事件
  */
-export function HandleWindowMinimize(): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(178686624) as any;
-    return $resultPromise;
+export function HandleWindowMinimize(): $CancellablePromise<void> {
+    return $Call.ByID(178686624);
 }
 
 /**
  * MinimizeButtonClicked 处理标题栏最小化按钮点击
  */
-export function MinimizeButtonClicked(): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(2477618539) as any;
-    return $resultPromise;
+export function MinimizeButtonClicked(): $CancellablePromise<void> {
+    return $Call.ByID(2477618539);
 }
 
 /**
  * ShouldMinimizeToTray 检查是否应该最小化到托盘
  */
-export function ShouldMinimizeToTray(): Promise<boolean> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(3403884012) as any;
-    return $resultPromise;
+export function ShouldMinimizeToTray(): $CancellablePromise<boolean> {
+    return $Call.ByID(3403884012);
 }
 
 /**
  * ShowWindow 显示主窗口
  */
-export function ShowWindow(): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(1315913255) as any;
-    return $resultPromise;
+export function ShowWindow(): $CancellablePromise<void> {
+    return $Call.ByID(1315913255);
 }

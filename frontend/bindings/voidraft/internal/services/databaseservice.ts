@@ -8,32 +8,11 @@
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
-import {Call as $Call, Create as $Create} from "@wailsio/runtime";
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore: Unused imports
-import * as application$0 from "../../../github.com/wailsapp/wails/v3/pkg/application/models.js";
+import { Call as $Call, CancellablePromise as $CancellablePromise, Create as $Create } from "@wailsio/runtime";
 
 /**
  * RegisterModel 注册模型与表的映射关系
  */
-export function RegisterModel(tableName: string, model: any): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(175397515, tableName, model) as any;
-    return $resultPromise;
-}
-
-/**
- * ServiceShutdown shuts down the service when the application closes
- */
-export function ServiceShutdown(): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(3907893632) as any;
-    return $resultPromise;
-}
-
-/**
- * ServiceStartup initializes the service when the application starts
- */
-export function ServiceStartup(options: application$0.ServiceOptions): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(2067840771, options) as any;
-    return $resultPromise;
+export function RegisterModel(tableName: string, model: any): $CancellablePromise<void> {
+    return $Call.ByID(175397515, tableName, model);
 }

@@ -8,11 +8,8 @@
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
-import {Call as $Call, Create as $Create} from "@wailsio/runtime";
+import { Call as $Call, CancellablePromise as $CancellablePromise, Create as $Create } from "@wailsio/runtime";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore: Unused imports
-import * as application$0 from "../../../github.com/wailsapp/wails/v3/pkg/application/models.js";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
 import * as models$0 from "../models/models.js";
@@ -20,60 +17,41 @@ import * as models$0 from "../models/models.js";
 /**
  * HandleConfigChange 处理备份配置变更
  */
-export function HandleConfigChange(config: models$0.GitBackupConfig | null): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(395287784, config) as any;
-    return $resultPromise;
+export function HandleConfigChange(config: models$0.GitBackupConfig | null): $CancellablePromise<void> {
+    return $Call.ByID(395287784, config);
 }
 
 /**
  * Initialize 初始化备份服务
  */
-export function Initialize(): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(1052437974) as any;
-    return $resultPromise;
+export function Initialize(): $CancellablePromise<void> {
+    return $Call.ByID(1052437974);
 }
 
 /**
  * PushToRemote 推送本地更改到远程仓库
  */
-export function PushToRemote(): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(262644139) as any;
-    return $resultPromise;
+export function PushToRemote(): $CancellablePromise<void> {
+    return $Call.ByID(262644139);
 }
 
 /**
  * Reinitialize 重新初始化备份服务，用于响应配置变更
  */
-export function Reinitialize(): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(301562543) as any;
-    return $resultPromise;
-}
-
-/**
- * ServiceShutdown 服务关闭时的清理工作
- */
-export function ServiceShutdown(): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(422131801) as any;
-    return $resultPromise;
-}
-
-export function ServiceStartup(options: application$0.ServiceOptions): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(2900331732, options) as any;
-    return $resultPromise;
+export function Reinitialize(): $CancellablePromise<void> {
+    return $Call.ByID(301562543);
 }
 
 /**
  * StartAutoBackup 启动自动备份定时器
  */
-export function StartAutoBackup(): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(3035755449) as any;
-    return $resultPromise;
+export function StartAutoBackup(): $CancellablePromise<void> {
+    return $Call.ByID(3035755449);
 }
 
 /**
  * StopAutoBackup 停止自动备份
  */
-export function StopAutoBackup(): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(2641894021) as any;
-    return $resultPromise;
+export function StopAutoBackup(): $CancellablePromise<void> {
+    return $Call.ByID(2641894021);
 }

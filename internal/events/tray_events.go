@@ -13,7 +13,7 @@ func RegisterTrayEvents(systray *application.SystemTray, mainWindow *application
 	// 不附加窗口到系统托盘，避免失去焦点自动缩小
 	// systray.AttachWindow(mainWindow)
 
-	// 设置窗口防抖时间
+	// 设置窗口防抖时间（在systray中设置过1次）
 	systray.WindowDebounce(200 * time.Millisecond)
 
 	// 设置点击托盘图标显示主窗口
@@ -33,13 +33,19 @@ func RegisterTrayEvents(systray *application.SystemTray, mainWindow *application
 
 // RegisterTrayMenuEvents 注册系统托盘菜单事件
 func RegisterTrayMenuEvents(app *application.App, menu *application.Menu, mainWindow *application.WebviewWindow) {
+	// 为主窗口菜单项添加点击事件处理函数
+	// 参数 data: 应用程序上下文信息
 	menu.Add("Main window").OnClick(func(data *application.Context) {
 		mainWindow.Show()
 	})
 
+	// 添加菜单分隔符
 	menu.AddSeparator()
 
+	// 为退出菜单项添加点击事件处理函数，用于退出应用程序
+	// 参数 data: 应用程序上下文信息
 	menu.Add("Quit").OnClick(func(data *application.Context) {
 		app.Quit()
 	})
+
 }

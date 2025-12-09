@@ -8,11 +8,8 @@
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
-import {Call as $Call, Create as $Create} from "@wailsio/runtime";
+import { Call as $Call, CancellablePromise as $CancellablePromise, Create as $Create } from "@wailsio/runtime";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore: Unused imports
-import * as application$0 from "../../../github.com/wailsapp/wails/v3/pkg/application/models.js";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
 import * as models$0 from "../models/models.js";
@@ -20,21 +17,10 @@ import * as models$0 from "../models/models.js";
 /**
  * GetAllKeyBindings 获取所有快捷键配置
  */
-export function GetAllKeyBindings(): Promise<models$0.KeyBinding[]> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(1633502882) as any;
-    let $typingPromise = $resultPromise.then(($result: any) => {
+export function GetAllKeyBindings(): $CancellablePromise<models$0.KeyBinding[]> {
+    return $Call.ByID(1633502882).then(($result: any) => {
         return $$createType1($result);
-    }) as any;
-    $typingPromise.cancel = $resultPromise.cancel.bind($resultPromise);
-    return $typingPromise;
-}
-
-/**
- * ServiceStartup 启动时调用
- */
-export function ServiceStartup(options: application$0.ServiceOptions): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(2057121990, options) as any;
-    return $resultPromise;
+    });
 }
 
 // Private type creation functions

@@ -8,11 +8,8 @@
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
-import {Call as $Call, Create as $Create} from "@wailsio/runtime";
+import { Call as $Call, CancellablePromise as $CancellablePromise, Create as $Create } from "@wailsio/runtime";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore: Unused imports
-import * as application$0 from "../../../github.com/wailsapp/wails/v3/pkg/application/models.js";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
 import * as models$0 from "../models/models.js";
@@ -20,105 +17,79 @@ import * as models$0 from "../models/models.js";
 /**
  * CreateDocument creates a new document and returns the created document with ID
  */
-export function CreateDocument(title: string): Promise<models$0.Document | null> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(3360680842, title) as any;
-    let $typingPromise = $resultPromise.then(($result: any) => {
+export function CreateDocument(title: string): $CancellablePromise<models$0.Document | null> {
+    return $Call.ByID(3360680842, title).then(($result: any) => {
         return $$createType1($result);
-    }) as any;
-    $typingPromise.cancel = $resultPromise.cancel.bind($resultPromise);
-    return $typingPromise;
+    });
 }
 
 /**
  * DeleteDocument marks a document as deleted (default document with ID=1 cannot be deleted)
  */
-export function DeleteDocument(id: number): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(412287269, id) as any;
-    return $resultPromise;
+export function DeleteDocument(id: number): $CancellablePromise<void> {
+    return $Call.ByID(412287269, id);
 }
 
 /**
  * GetDocumentByID gets a document by ID
  */
-export function GetDocumentByID(id: number): Promise<models$0.Document | null> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(3468193232, id) as any;
-    let $typingPromise = $resultPromise.then(($result: any) => {
+export function GetDocumentByID(id: number): $CancellablePromise<models$0.Document | null> {
+    return $Call.ByID(3468193232, id).then(($result: any) => {
         return $$createType1($result);
-    }) as any;
-    $typingPromise.cancel = $resultPromise.cancel.bind($resultPromise);
-    return $typingPromise;
+    });
 }
 
 /**
  * ListAllDocumentsMeta lists all active (non-deleted) document metadata
  */
-export function ListAllDocumentsMeta(): Promise<(models$0.Document | null)[]> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(3073950297) as any;
-    let $typingPromise = $resultPromise.then(($result: any) => {
+export function ListAllDocumentsMeta(): $CancellablePromise<(models$0.Document | null)[]> {
+    return $Call.ByID(3073950297).then(($result: any) => {
         return $$createType2($result);
-    }) as any;
-    $typingPromise.cancel = $resultPromise.cancel.bind($resultPromise);
-    return $typingPromise;
+    });
 }
 
 /**
  * ListDeletedDocumentsMeta lists all deleted document metadata
  */
-export function ListDeletedDocumentsMeta(): Promise<(models$0.Document | null)[]> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(490143787) as any;
-    let $typingPromise = $resultPromise.then(($result: any) => {
+export function ListDeletedDocumentsMeta(): $CancellablePromise<(models$0.Document | null)[]> {
+    return $Call.ByID(490143787).then(($result: any) => {
         return $$createType2($result);
-    }) as any;
-    $typingPromise.cancel = $resultPromise.cancel.bind($resultPromise);
-    return $typingPromise;
+    });
 }
 
 /**
  * LockDocument 锁定文档，防止删除
  */
-export function LockDocument(id: number): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(1889494473, id) as any;
-    return $resultPromise;
+export function LockDocument(id: number): $CancellablePromise<void> {
+    return $Call.ByID(1889494473, id);
 }
 
 /**
  * RestoreDocument restores a deleted document
  */
-export function RestoreDocument(id: number): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(784200778, id) as any;
-    return $resultPromise;
-}
-
-/**
- * ServiceStartup initializes the service when the application starts
- */
-export function ServiceStartup(options: application$0.ServiceOptions): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(1474135487, options) as any;
-    return $resultPromise;
+export function RestoreDocument(id: number): $CancellablePromise<void> {
+    return $Call.ByID(784200778, id);
 }
 
 /**
  * UnlockDocument 解锁文档
  */
-export function UnlockDocument(id: number): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(222307930, id) as any;
-    return $resultPromise;
+export function UnlockDocument(id: number): $CancellablePromise<void> {
+    return $Call.ByID(222307930, id);
 }
 
 /**
  * UpdateDocumentContent updates the content of a document
  */
-export function UpdateDocumentContent(id: number, content: string): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(3251897116, id, content) as any;
-    return $resultPromise;
+export function UpdateDocumentContent(id: number, content: string): $CancellablePromise<void> {
+    return $Call.ByID(3251897116, id, content);
 }
 
 /**
  * UpdateDocumentTitle updates the title of a document
  */
-export function UpdateDocumentTitle(id: number, title: string): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(2045530459, id, title) as any;
-    return $resultPromise;
+export function UpdateDocumentTitle(id: number, title: string): $CancellablePromise<void> {
+    return $Call.ByID(2045530459, id, title);
 }
 
 // Private type creation functions

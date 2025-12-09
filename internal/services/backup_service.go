@@ -4,12 +4,13 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/wailsapp/wails/v3/pkg/application"
 	"os"
 	"path/filepath"
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/wailsapp/wails/v3/pkg/application"
 
 	"github.com/go-git/go-git/v5"
 	gitConfig "github.com/go-git/go-git/v5/config"
@@ -24,6 +25,7 @@ import (
 	_ "modernc.org/sqlite"
 )
 
+// dbSerializeFile 定义了数据库序列化文件的名称常量
 const (
 	dbSerializeFile = "voidraft_data.bin"
 )
@@ -45,6 +47,13 @@ type BackupService struct {
 }
 
 // NewBackupService 创建新的备份服务实例
+// 参数:
+//   - configService: 配置服务，用于获取备份相关配置
+//   - dbService: 数据库服务，用于序列化数据库
+//   - logger: 日志服务，用于记录备份操作日志
+//
+// 返回值:
+//   - *BackupService: 返回初始化的备份服务实例
 func NewBackupService(configService *ConfigService, dbService *DatabaseService, logger *log.LogService) *BackupService {
 	return &BackupService{
 		configService: configService,

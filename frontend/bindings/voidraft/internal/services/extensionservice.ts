@@ -8,11 +8,8 @@
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
-import {Call as $Call, Create as $Create} from "@wailsio/runtime";
+import { Call as $Call, CancellablePromise as $CancellablePromise, Create as $Create } from "@wailsio/runtime";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore: Unused imports
-import * as application$0 from "../../../github.com/wailsapp/wails/v3/pkg/application/models.js";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
 import * as models$0 from "../models/models.js";
@@ -20,53 +17,38 @@ import * as models$0 from "../models/models.js";
 /**
  * GetAllExtensions 获取所有扩展配置
  */
-export function GetAllExtensions(): Promise<models$0.Extension[]> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(3094292124) as any;
-    let $typingPromise = $resultPromise.then(($result: any) => {
+export function GetAllExtensions(): $CancellablePromise<models$0.Extension[]> {
+    return $Call.ByID(3094292124).then(($result: any) => {
         return $$createType1($result);
-    }) as any;
-    $typingPromise.cancel = $resultPromise.cancel.bind($resultPromise);
-    return $typingPromise;
+    });
 }
 
 /**
  * ResetAllExtensionsToDefault 重置所有扩展到默认状态
  */
-export function ResetAllExtensionsToDefault(): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(270611949) as any;
-    return $resultPromise;
+export function ResetAllExtensionsToDefault(): $CancellablePromise<void> {
+    return $Call.ByID(270611949);
 }
 
 /**
  * ResetExtensionToDefault 重置扩展到默认状态
  */
-export function ResetExtensionToDefault(id: models$0.ExtensionID): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(868308101, id) as any;
-    return $resultPromise;
-}
-
-/**
- * ServiceStartup 启动时调用
- */
-export function ServiceStartup(options: application$0.ServiceOptions): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(40324057, options) as any;
-    return $resultPromise;
+export function ResetExtensionToDefault(id: models$0.ExtensionID): $CancellablePromise<void> {
+    return $Call.ByID(868308101, id);
 }
 
 /**
  * UpdateExtensionEnabled 更新扩展启用状态
  */
-export function UpdateExtensionEnabled(id: models$0.ExtensionID, enabled: boolean): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(1067300094, id, enabled) as any;
-    return $resultPromise;
+export function UpdateExtensionEnabled(id: models$0.ExtensionID, enabled: boolean): $CancellablePromise<void> {
+    return $Call.ByID(1067300094, id, enabled);
 }
 
 /**
  * UpdateExtensionState 更新扩展状态
  */
-export function UpdateExtensionState(id: models$0.ExtensionID, enabled: boolean, config: models$0.ExtensionConfig): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(2917946454, id, enabled, config) as any;
-    return $resultPromise;
+export function UpdateExtensionState(id: models$0.ExtensionID, enabled: boolean, config: models$0.ExtensionConfig): $CancellablePromise<void> {
+    return $Call.ByID(2917946454, id, enabled, config);
 }
 
 // Private type creation functions

@@ -8,11 +8,8 @@
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
-import {Call as $Call, Create as $Create} from "@wailsio/runtime";
+import { Call as $Call, CancellablePromise as $CancellablePromise, Create as $Create } from "@wailsio/runtime";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore: Unused imports
-import * as application$0 from "../../../github.com/wailsapp/wails/v3/pkg/application/models.js";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
 import * as models$0 from "../models/models.js";
@@ -20,45 +17,24 @@ import * as models$0 from "../models/models.js";
 /**
  * GetThemeByName 通过名称获取主题覆盖，若不存在则返回 nil
  */
-export function GetThemeByName(name: string): Promise<models$0.Theme | null> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(1938954770, name) as any;
-    let $typingPromise = $resultPromise.then(($result: any) => {
+export function GetThemeByName(name: string): $CancellablePromise<models$0.Theme | null> {
+    return $Call.ByID(1938954770, name).then(($result: any) => {
         return $$createType1($result);
-    }) as any;
-    $typingPromise.cancel = $resultPromise.cancel.bind($resultPromise);
-    return $typingPromise;
+    });
 }
 
 /**
  * ResetTheme 删除指定主题的覆盖配置
  */
-export function ResetTheme(name: string): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(1806334457, name) as any;
-    return $resultPromise;
-}
-
-/**
- * ServiceShutdown 服务关闭
- */
-export function ServiceShutdown(): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(1676749034) as any;
-    return $resultPromise;
-}
-
-/**
- * ServiceStartup 服务启动
- */
-export function ServiceStartup(options: application$0.ServiceOptions): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(2915959937, options) as any;
-    return $resultPromise;
+export function ResetTheme(name: string): $CancellablePromise<void> {
+    return $Call.ByID(1806334457, name);
 }
 
 /**
  * UpdateTheme 保存或更新主题覆盖
  */
-export function UpdateTheme(name: string, colors: models$0.ThemeColorConfig): Promise<void> & { cancel(): void } {
-    let $resultPromise = $Call.ByID(70189749, name, colors) as any;
-    return $resultPromise;
+export function UpdateTheme(name: string, colors: models$0.ThemeColorConfig): $CancellablePromise<void> {
+    return $Call.ByID(70189749, name, colors);
 }
 
 // Private type creation functions

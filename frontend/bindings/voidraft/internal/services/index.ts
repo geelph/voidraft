@@ -40,4 +40,18 @@ export {
     WindowService
 };
 
-export * from "./models.js";
+export {
+    HttpRequest,
+    HttpResponse,
+    MemoryStats,
+    MigrationProgress,
+    MigrationStatus,
+    OSInfo,
+    SelfUpdateResult,
+    SystemInfo
+} from "./models.js";
+
+export type {
+    CancelFunc,
+    ObserverCallback
+} from "./models.js";
